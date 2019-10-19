@@ -1,0 +1,111 @@
+javascript is used to add functionality and animation to the web page
+
+alert() function
+  the alert function is used as analogous to the print function but it shows the output as a alert
+  alert("hello")
+
+console.log() function
+  it is also analogous to the print function but it shows the output on the console
+
+
+typeof() function
+  it tells what is the data type of a variable
+
+
+prompt() function
+  analogous to python input
+  it will take the input from the user
+
+var
+  it is used to make a variable
+
+Data types
+  1. String
+  2. Numbers
+  3. Booleans
+
+==============================================================================================================================
+Strings
+
+string.length
+  it is used to find the length of the string or we can say that the number of characters
+  in the string
+  It can also be used to find the length of the array
+
+
+string.slice(x,y)
+  it is used to slice the string
+  x = starting position which is included
+  y = ending position which is not included
+
+  for eg = var name = "kartik";
+           console.log(name.slice(0,1));
+
+           Output = k
+
+ string.toUpperCase()
+  to convert the string in the uppercase letters or capital letters
+
+string.toLowerCase()
+  to convert the string in the lowercase letters or small letters
+
+Logical Operators
+  AND Operator = &&
+  OR Operator = ||
+  Not Operator = !
+
+
+==============================================================================================================================
+
+Functions
+
+
+Syntax
+  function name(parameters) {
+    body
+  }
+
+just like python the function in javascript are also made like this
+no need to specify the return type of the function
+no need to specify the data type of the parameters
+
+Eg
+  function display(name){
+    return "Hello Mr "+ name ;
+  }
+
+  var newLine = display("kartik")
+
+
+==============================================================================================================================
+
+Math function
+
+Math.random(); = for generating random number in the range 0 to 1 for eg = 0.2344 , 0.12 , 0.54634 etc
+Math.floor() = for getting the greatest integer value of the number or GINT / approaching the least values
+
+
+==============================================================================================================================
+Conditionals
+1. If
+2. Else
+3. Else if
+
+for equal three equating signs are used
+==============================================================================================================================
+
+Arrays
+  it is denoted as
+    var guests = ["aman","veer","dev","kartik"];
+
+
+
+functions
+  array.length()
+    to find the length of the array
+
+  array.includes(element)
+    it will give true if that element will be present in the Array
+
+
+    
