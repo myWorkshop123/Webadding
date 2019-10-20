@@ -1,0 +1,264 @@
+javascript is used to add functionality and animation to the web page
+
+alert() function
+  the alert function is used as analogous to the print function but it shows the output as a alert
+  alert("hello")
+
+console.log() function
+  it is also analogous to the print function but it shows the output on the console
+
+
+typeof() function
+  it tells what is the data type of a variable
+
+
+prompt() function
+  analogous to python input
+  it will take the input from the user
+
+var
+  it is used to make a variable
+
+Data types
+  1. String
+  2. Numbers
+  3. Booleans
+
+==============================================================================================================================
+Strings
+
+string.length
+  it is used to find the length of the string or we can say that the number of characters
+  in the string
+  It can also be used to find the length of the array
+
+
+string.slice(x,y)
+  it is used to slice the string
+  x = starting position which is included
+  y = ending position which is not included
+
+  for eg = var name = "kartik";
+           console.log(name.slice(0,1));
+
+           Output = k
+
+ string.toUpperCase()
+  to convert the string in the uppercase letters or capital letters
+
+string.toLowerCase()
+  to convert the string in the lowercase letters or small letters
+
+Logical Operators
+  AND Operator = &&
+  OR Operator = ||
+  Not Operator = !
+
+
+==============================================================================================================================
+
+Functions
+
+
+Syntax
+  function name(parameters) {
+    body
+  }
+
+just like python the function in javascript are also made like this
+no need to specify the return type of the function
+no need to specify the data type of the parameters
+
+Eg
+  function display(name){
+    return "Hello Mr "+ name ;
+  }
+
+  var newLine = display("kartik")
+
+
+==============================================================================================================================
+
+Math function
+
+Math.random(); = for generating random number in the range 0 to 1 for eg = 0.2344 , 0.12 , 0.54634 etc
+Math.floor() = for getting the greatest integer value of the number or GINT / approaching the least values
+
+
+==============================================================================================================================
+Conditionals
+1. If
+2. Else
+3. Else if
+
+for equal three equating signs are used
+==============================================================================================================================
+
+Arrays
+  it is denoted as
+    var guests = ["aman","veer","dev","kartik"];
+
+
+
+functions
+  array.length()
+    to find the length of the array
+
+  array.includes(element)
+    it will give true if that element will be present in the Array
+
+
+
+==================================================================================================
+
+ADD JS IN HTML 
+
+
+
+to incorporate js in html there are three ways
+ 1. Inline js
+      this is added inside the body tag by typing onload
+      for eg
+        <body onload="alert('hello');">
+
+            <h1>Hello World </h1>
+
+
+        </body>
+
+
+ 2. Internal js
+       this is added inside the body section of the html
+       for eg
+
+       <body>
+
+            <script>
+              alert("hello");
+            </script>
+
+
+        </body>
+
+ 3. Externel js
+      this is added as a linked javascript file in the html
+      it is added  in this way
+      <script type="text/javascript" src="index.js">
+
+      it is added at the end of the body tag
+        because if it is going to change an html element then it should know about that html
+        element,
+        if it is added in the head tag then it will not be knowing the html element/tag
+        thus it will show an error
+
+        So,
+          the best practice is to add it in the end of the body tag
+
+
+
+==================================================================================================
+
+DOM
+Document Object Model
+
+is discussed in the windows version of the file
+
+
+==================================================================================================
+
+SELECTING ELEMENTS USING JAVASCRIPT
+
+
+
+1. Document.querySelector(selectorName);
+    this is fetch the content inside the selectors
+    selectors include tag, class, id, etc just write the selectorName in the format which is used in css
+    like if it is a class then write " .className "
+         if it is an id " #idName "
+         if it is a tag " tagName "
+
+
+2. Document.getElementsbyTagName(tagName);
+    this is going to give the output in the form of an array
+
+3. Document.getElementsbyClassName(className)
+
+
+4. Document.querySelectorAll(selectorName)
+  this is going to return the array of values
+
+
+  
+==================================================================================================
+
+MANIPULATING AND CHANGING THE STYLES OF HTML ELEMENTS USING JAVASCRIPT
+
+
+
+to change the style of html element first specify the element you want to change by using the 
+(select html element using javascript) methods then type (.) and then type style and then 
+the css property in camelCasing form . So all the properties will be changed to camel casing for 
+
+
+
+==================================================================================================
+
+ADDING CSS CLASS 
+
+
+
+We can also add a css class to the element in the console if the css class is already added but 
+is not attached with the css element 
+
+First Select the element by using the getElement or querySelector method 
+
+document.querySelector("h1").classList.add(css Class Name);
+
+there are three types of functions used in classList Object
+1. classList.add()
+    this will add the css class to the element 
+
+2. classList.remove()
+    this will remove the css class 
+
+2. classList.toggle()
+    this will toggle the css class i.e it will remove the class if added and vice versa 
+
+
+
+
+==================================================================================================
+
+DIFFERENCE BETWEEN INNER HTML AND INNER CONTENT 
+
+
+
+the innerHtml will generate the html inside that element but the,
+innerText property will generate the text inside that html element
+
+
+
+==================================================================================================
+
+MANIPULATING HTML ELEMENT ATTRIBUTES 
+
+Syntax
+  selectedElement.attributes;
+    this will return a list of attributes which that particular elemen have 
+
+  selectedElement.getAttribute("name of the attribute");
+    this will return the value inside that attribute 
+  
+
+  selectedElement.setAttribute("name of the attribute", "value to be changed");
+    this will change the value of that attribute with the value specified 
+
+    
+    
+  
+
+
+
+
+==================================================================================================
+

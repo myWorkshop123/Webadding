@@ -1,0 +1,352 @@
+things which are discussed 
+
+Table 
+    explain how data is inserted inside the html table 
+        tr 
+        td
+        th
+        thead
+        tbody
+        tfoot
+            different tableBody tags are required to 
+            first make the table look good 
+            and also to style each section of the table 
+            using javascipt and css
+
+
+        cellspacing
+        border = for making a grid appear around the entries giving it a table like view 
+
+
+    very important thing 
+    to make a sub table inside a table meaning to 
+    divide the table 
+    just after nesting use the table html tag to 
+    create a new table do not go further nesting with tr and tds 
+    as it will break the table structure 
+
+    in short the nesting of the tr and td must be minimum 
+    if the level goes more than 2 use 
+    another table instead of tr's and td's
+
+    (another tip is to use live server while creating a table using html)
+
+
+
+HTML Forms
+
+    1.<form>
+        contains two attributes 
+            a. action
+                the place where the information goes 
+                    (can be a html page)
+            b. method 
+                the http function which is used to send the data 
+                    (can be get or set)
+    
+    2. input 
+        this class contains all the widgets used in form these are  as follows
+            a. textbox
+            b. Submit button
+            c. Checkbox
+            d. Radiobutton
+        refer to mdn to use them 
+
+    3. Label
+    
+
+CSS 
+    these are used for designing the web page
+    the basic syntax of any type of css code goes like this 
+    what_you_want_to_change{
+        what_you_want_to_change_about_it:what_is_the_change
+    }
+
+    there are three types of css 
+        1) inline
+            adds the css style in the tag as an attribute
+            
+            for eg:-
+                <body style="background-color:blue;" >
+        
+        
+        2) internal 
+            add the css in the head portion of the web page 
+            
+            for eg:-
+                <head>
+                    body {
+                        background-color:Red;
+                    }
+
+
+                <head>
+        
+        
+        3) external 
+            add the css in a seperate file and refer it inside the html 
+            we use a link tag in the head section of the html 
+            it has 2 attributes:
+                a. rel 
+                    relation. it tells the browser that what is relation b/w this page and the file linked to it. in case 
+                    of css it is the stylesheet
+                
+                b. href 
+                    specifies the location of the file 
+
+    css Properties 
+        a. background-color
+                changes the color of the background
+                    syntax
+                        background-color:the_color;
+
+
+    there are many more just refer to mdn documentation
+
+
+the basic syntax of external css goes like this 
+    syntax 
+        selector{
+            property:value;
+        }
+    for eg:-
+        body{
+            background:red;
+        }
+
+    here the selector is body which specifies who is going to be changed 
+    there are many different types of selectors which will be described below 
+
+(NOTE)=====> the tag selector have the lowest property of all the selectors meaning if there is some other selectors and a tag selector pointing towards 
+            changing the same property then the browser will only implement the other selector Properties
+
+        1. Tag selectors
+            these selectors are named as their tags.
+            for eg:-
+                body,h1,h2,p etc 
+        
+        2. class selectors
+            these selectors are used to differentiate between same tags.
+            
+            These are the steps which are used to define the class selectors
+              a. First add a class attribute in the tag and give it a name of your own choice 
+              b. In the linked css file in the place of selectors add the following lines
+
+                    syntax
+                        .class_name{
+                            property:value;
+                        }
+                    for eg:-(refer to index.html for info about the image)
+                        .grapes{
+                            background-color:red;
+                        }
+
+            
+        3. id selectors
+            just like class selectors id selectors are also used to differentiate the tags the only difference is that 
+            you cannot have two tags with the same id whereas in class you can have multiple tags as the same class 
+
+            steps to implement id selectors are as follows
+                a. first add the id attribute in the tag and give it a name of your own choice 
+                b. in the linked css file add the following lines 
+
+                    syntax 
+                        #id_name{
+                            property:value;
+                        }
+
+                    for eg
+                        #authorTitle{
+                            color:saddlebrown;
+                        }
+
+
+((NOTE))======> You can add more than one class inside a tag but cannot add more than one id ------------------------------
+
+    for eg 
+    <img class="class1 class2" src="the source" alt="">
+
+    in the css
+    .class1 {
+        background-color:red;
+    }
+
+    .class2 {
+        border-radius:100%;
+    }
+
+    but you cannot do the same thing with ids 
+
+((NOTES)) ====> ENDS HERE -------------------------------------------------------------------------------------------------
+
+
+CSS pseudo classes 
+    -> they specify a special state of the selected element 
+    -> they start with :name_of_pseudoClass 
+    -> for eg 
+        :hover 
+        specifies the hover state meaning what will happen if the mouse if hovered over the element 
+
+    -> how to use pseudo classes 
+        selector:name_of_pseudoClass {
+            property:values;                    
+        }
+
+Favicons 
+    these are a type of logos which appear on the left side of the tab inside the page 
+    to make on follow the steps 
+    1. download the favicon from favicon.cc 
+    2. make a link tag and in the rel tag type icon 
+
+
+DIV element
+    <di> the div element or the division class is used to make divisions in the html page to put things in the container 
+    
+    THE BOX MODEL
+        -> This model states that each element in html is made up of boxes. A box has the following css properties which can be manipulated.
+        a. Height and Width
+        b. border
+        c. Padding
+        d. Margin
+
+        -> Explaination of all of the above 
+            a. Height and width = it specifies the Height and width of the box 
+
+            b. Border = It specifies the dimensions of the border 
+
+            c. Padding = It means the space between the things inside the box and border
+
+            d. Margin/boundry = It refers to the space which a box keeps between another box 
+
+        -> All of these can be seen in the form of box in the inspect element tab of the chrome where a box is made that contains a gui with which these values can be 
+           manipulated graphically.
+        
+
+SPAN html element
+    A <span> element is like a div element it is like a box which has dimensions equal to  only the contents inside. 
+    Only problem with the span element is that you cannot change the width 
+
+Visibility CSS property
+    it takes that element and hides it but it doesn't deletes it position unlike the none property of the display 
+    attribute which deletes the element as well as its position 
+
+
+Display CSS property
+    It is a CSS property of html elements 
+    there are 4 values of this property
+        1. Block
+            there are html elements which take the whole horizontal space of the screen, you can see that in pesticide extension 
+            that these elements take the whole width of the screen while displaying due to which the next element will inserted in the next line 
+            these are
+                headers (<h>)
+                paragraphs (<p>)
+                lists and list items(<li>)(<ol>)
+                Divisions <div>
+                Forms <forms>
+
+
+                
+        2. Inline 
+            Inline Display element only takes that much space it needs to. 
+            The only problem is that you cannot change the width of the element.
+            these are 
+                Image element <img> 
+                Anchor element <a>
+                span element   <span>
+
+        3. Block-Inline 
+            It is an inline element whose width can be changed.
+            Syntax 
+                display:inline-block;
+
+        4. None 
+            it just removes the display property of the element. Remember it doesn't removes the element. 
+            It appears that the element is deleted as the position and the element both get deleted 
+
+        5. Visibility
+            we can also hide the element keeping its position at the same place by using Visibility property 
+            Syntax:
+                Visibility:hidden;
+
+
+POSITION CSS property
+    As the name suggests it is used to position the css element 
+    it has 4 types. after specifying the type the user has to give the values to further four attributes.
+    these are as follows 
+        1. top 
+        2. bottom
+        3. left 
+        4. right 
+
+    It is not necessary to give values to all of them it is just which distance which u want to change
+----------------------------------------------------------------------------------------------------------
+    it has 4 types 
+        a. Static 
+            it is the default position property of the elements which the html gives to each element which we discussed in the display property above 
+
+        b. Relative 
+            Relative attribute changes the position of the elements with respect to its Static position before.
+            Syntax:
+                selector {
+                    position:Relative:
+                    top:50px;
+                } 
+
+        c. Absolute 
+            Absolute changes the position of the element with respect to the parent element. The flow of the other element continues.
+            Syntax:
+            selector {
+                position:Absolute;
+                direction:value;
+            }
+
+        d.Fixed 
+            Fixed values changes the position of the element with respect to the parent element.
+            But the only difference is the element will remain fixed on that portion of the screen even if the users scroll down.
+            Syntax:
+            selector {
+                position: fixed;
+                direction: value;
+            }
+TEXT ALLIGN PROPERTY 
+    the text-align css property is used to align everything in the element 
+
+THE AUTO MARGIN value
+    after aligning the content some element will be shifted towards one side 
+    so to overcome this issue we gill value auto the margin property of 
+    that element
+
+font-family property
+    it is used to change the font of the element
+    to get the fonts use fonts.google.com 
+        1. add the fonts 
+        2. copy the href link and paste it in the head tag 
+        3. copy the css and paste it in the css file 
+        
+
+font-size property
+    px 
+    percentage = for changing dynamically 
+    em = for changing the size dynamically
+    100 % = 16px = 1 em
+    the percentage and em add the font inherited from their parent tag 
+    So, in this condition we always use rem value 
+    rem = it is a value of the size of the font which specifies that no matter what the 
+    font size in the parent is i will only choose the one which is specified
+
+
+FLOAT AND CLEAR 
+    FLOAT        
+        the float is used to wrap the text around a image.
+        float is applied to the image or the thing around which the text is wraped
+        Syntax:
+            selector {
+                float: direction;
+            }
+    CLEAR
+        the clear is used to clear the float property of an element which is wraped 
+        to a element using float 
+        Syntax:
+            selector {
+                clear: direction;
+            }
