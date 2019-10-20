@@ -120,4 +120,20 @@ media-query
 
 
   it is used to add the responsiveness to the website without the bootstrap
-  it acts as a conditional for the css 
+  it acts as a conditional for the css
+
+
+hierarchical selectors
+these are the selectors which are used to target a specific element
+For eg
+  if there are two div 's where two anchor tags with the same class name exist
+  so if one div has the class=" firstDiv "
+  and the other div has the class= " secondDiv "
+  and the two anchor tags has the class = "sameAnchor "
+  then
+    if the programmer wants to target just the anchor tag inside the
+    " secondDiv " div then he will write
+    in css
+    .secondDiv .sameAnchor{
+      css property
+    }
