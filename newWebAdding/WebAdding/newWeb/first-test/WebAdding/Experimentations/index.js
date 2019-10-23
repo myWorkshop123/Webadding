@@ -1,10 +1,9 @@
-class rectangle {
-  constructor(height,width){
-    this.height = height;
-    this.width = width;
-  }
-  function makeNew(value1 , value2) {
-    t
-    
-  }
+function myboy(name, roll, gender)
+{
+  this.name = name;
+  this.roll = roll;
+  this.gender = gender;
 }
+
+myboy("himanshu", 1, "male");
+console.log(myboy)

@@ -57,3 +57,38 @@ this keyword
 
 ================================================================================================================
 
+OBJECTS 
+
+    objects are like the classes of javascript.
+    syntax
+        var myFirstObject = {
+            property1: value;
+            property2: value2;
+            property3: value3;
+                    .
+                    .
+                    .
+                    .
+                    .
+            propertyN: valuen;
+
+        }
+
+    the user van change the values of these objects but cannot initialise an object 
+
+
+CONSTRUCTOR FUNCTION 
+
+    to initialise an object a different method called the constructor function is used 
+    Syntax 
+        function myFirstObject(property1, property2, property3 ...... propertyN) {
+            this.property1 = property1;
+            this.property2 = property2;
+        }
+    
+    in this method an object can be initialised in this way 
+
+    var obj1 = new myFirstObject(value1, value2, value3,................ valueN);
+
+
+      
