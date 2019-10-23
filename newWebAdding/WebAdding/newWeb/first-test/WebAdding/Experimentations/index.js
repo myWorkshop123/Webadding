@@ -1,3 +1,6 @@
+
+
+
 function myboy(name, roll, gender)
 {
   this.name = name;
@@ -6,4 +9,6 @@ function myboy(name, roll, gender)
 }
 
 myboy("himanshu", 1, "male");
-console.log(myboy)
+console.log(myboy);
+
+
