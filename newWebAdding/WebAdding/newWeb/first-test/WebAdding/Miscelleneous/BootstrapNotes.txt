@@ -1,0 +1,139 @@
+bootstrap is used to implement css
+
+there are two ways to add bootstrap
+    1.Download the bootstrap and refer through the link tag in the website
+    2.Use the CDN (Content Delivary Network ) link provided in the website
+      to add the bootstrap
+
+We will use the 2nd way
+
+
+WIREFRAMES
+  these are a kind of blueprint of the website which the developer makes with the help
+  of copy and pen
+  like a rough sketch of the website
+
+MOCKUP
+  these are also kind of blueprint of the website which shows the final product of the website
+
+
+
+NAVIGATION BAR
+  it is used to add navigation header to the website using bootstrap.
+  for eg:-
+    home button , contact button , download button = all these buttons are available in the header part of he website so that the user can be directed straight away to that page
+
+  Classes
+    1. navbar = for adding nav bar
+    2.
+
+
+
+  to implement the navigation bar
+  1. Add the <nav> tag in the html
+  2.
+
+
+
+Window 10 notes time = 3:07 I have entered the notes on macbook (the previous version ) at 12:00pm
+
+Note = Any animation to the website will only be added through javascript so make sure to add js code with bootstrap link
+
+Layout
+  there are two things in this
+    1. col class
+    2. row class
+
+    1. col class
+        the width of the screen is divided into 12 columns when we add the col class in the div it divides the screen with the number of
+        col class used in the tags
+        for eg
+        <div class="row">
+         <div class="col" style="background-color:red; border:1px solid;<h4>Heading 4</h4>">
+            col
+         </div>
+        </div>
+
+        this will create only one column in the whole screen
+
+        if we create two divs with col classes then it will divide the width of the screen with 2 and will place two cols on the screen
+
+        The other more efficient method is to add a number with the col to denote
+        like col-3
+        to give that part of the screen to that column where is is considered that the screen is divided into 12 parts
+
+      to make the no of columns to apear dynamically depending upon the screen size use "col-screenSize-number"
+      number = values discussed earlier
+      screenSize = lg = large
+                   md = medium
+                   sm = small
+
+
+      the statement "col-lg-6" means that that column will occuppy 12/6 part of the screen when the screen size will be large, if the screen size
+      goes less than that then it will occuppy 100% of the screen
+
+
+Container
+  containers are included in the div class
+  there are two types of containers
+    1. Container
+        it will not adjust with the screen i.e it will keep a margin
+    2. Container-fluid
+        it will adjust the text automatically with the size of the screen and also all the contents of the website
+
+
+Carousel
+  the Carousel control is used to add the functionality of the slider in the website
+  to add the Carousel see the bootstrap documentation
+  the other properties which we can change in the Carousel are as follows
+    1. data-interval
+        we can set the interval between each slide using this property
+        For eg: data-interval="1000"
+          it will take 1 second of interval to move to the next slide
+
+
+    2. data-pause="hover"
+        the slider will be paused when the mouse will be hovered on one of them
+
+    3. data-ride="false"
+        this property is set to true to play the slider automatically
+
+
+Cards
+  these are used to display price in the form of card
+
+
+z-index
+  it is used to stack one element on top of the other, just like a z axis we put
+  the element in front of the other element
+
+  the property is "z-index"
+  another important thing is that it cannot be done without giving the position
+  element to the element
+
+media-query
+
+  is used as @media-query (condition) {
+
+      the css styles
+  }
+
+
+  it is used to add the responsiveness to the website without the bootstrap
+  it acts as a conditional for the css
+
+
+hierarchical selectors
+these are the selectors which are used to target a specific element
+For eg
+  if there are two div 's where two anchor tags with the same class name exist
+  so if one div has the class=" firstDiv "
+  and the other div has the class= " secondDiv "
+  and the two anchor tags has the class = "sameAnchor "
+  then
+    if the programmer wants to target just the anchor tag inside the
+    " secondDiv " div then he will write
+    in css
+    .secondDiv .sameAnchor{
+      css property
+    }
