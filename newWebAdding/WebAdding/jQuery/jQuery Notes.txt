@@ -1,0 +1,59 @@
+all the DOM reference which we used is just replaced by a dollar sign ($) 
+so if you want to select h1 just type 
+    $("h1")
+
+it is used for everything to select 
+
+to go into a css property 
+    $("h1").css(" property you want to change " , " the value you want to give ")
+
+    you can also get the value of the property by typing 
+    
+    console.log( $("h1").css(" property ") )
+        
+        this command will give the value of that specific property on that tag 
+
+
+addClass() method 
+    to add a class to the html element 
+        $("h1").addClass(" name of the class1  ");
+        
+        (YOU CAN ALSO ADD MULTIPLE CLASSESS BY JUST ADDING A SPACE IN BETWEEN)
+
+
+removeClass() Method 
+    the same syntax goes for removing a class 
+        $("h1").removeClass(" name of the class ");
+
+
+
+.hasClass() Method 
+    to check whether a particular class is present in the element or not 
+        $("h1").hasClass(" name of the class ");
+
+
+.text() Method  
+    this is used to manipulate the text of an element
+        Syntax  
+            $("h1").text(" the text you want to add ");
+
+
+.html() Method 
+    this is used to add html inside that particular element
+        Syntax
+            $("h1").html(" the html code that you want to insert ");
+
+
+.attr() Method
+    it is used to get or set the value of attribute of an html element 
+
+    Syntax 
+        $("h1").attr("name of the attribute " , "the value you want to give to the attribute")
+
+    the second the argument is kept blank in case you want to get the value.
+    You can also use it to get the css class of the html element as we have did 
+
+
+
+
+
