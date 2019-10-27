@@ -1,0 +1,24 @@
+git remote add origin <url>
+  this is used to connect the local git repo with the github repo
+
+git push -u origin master
+   this command is used to push the commits as well as the files into the github repository
+   origin is the name of the remote which we had setup
+   master is the master branch which u want to push it into the repo u can also push another branch
+   into the github repository
+
+
+.gitignore
+   this is used to ignore commiting some of the file to the github repository
+   there is also a github repository which provides tempelates for .gitignore file  https://github.com/github/gitignore.git
+
+
+
+
+STEPS
+   First touch .gitignore to create a gitignore file
+   In the gitignore file add the files which u want to ignore
+   u can also ignore a whole files with a file format using *.Name_Of_file_format to ignore all the files
+
+List of Open Source ios apps
+  https://github.com/dkhamsing/open-source-ios-apps.git

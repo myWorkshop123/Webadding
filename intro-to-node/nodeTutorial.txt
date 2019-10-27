@@ -1,0 +1,29 @@
+node <name of the file>
+	To run a js file inside the terminal without incorporating it into the html 
+
+node 
+	to open the console where u can execute the js line by line 
+
+
+NPM 
+	it is a package manager which is used to incorporate dependemcies 
+	in js 
+
+npm init 
+	it is the first step in adding the npm packages in js 
+
+npm install <package name>
+	to install the npm package from command line 
+	make sure to spell it right 
+
+EXPRESS
+	it is a framework which is used to add additional functionality 
+	to node  
+
+
+DIFFERENT TYPE OF CALLBACK FUNCTION 
+	(param1, param2) => { function body  }
+		--it is also a form of callback function in which there is no need for enter the "function" keyword
+
+
+

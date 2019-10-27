@@ -1,6 +1,6 @@
 // Constructor Function
-// Constructor function takes some parameters in the function call 
-// and inititalises them , thats why it is called a constructor function 
+// Constructor function takes some parameters in the function call
+// and inititalises them , thats why it is called a constructor function
 
 
 
@@ -11,22 +11,22 @@ function rectangle(length, breadth,height)
     this.area = function () {
         console.log("the area is " + this.length * this.breadth);
     }
-    // Another function 
+    // Another function
     this.display = function () {
         console.log("this is the display function ");
     }
 
 }
 
-// To make an object this is the syntax 
+// To make an object this is the syntax
 var rect1 = new rectangle(3, 4);
 rect1.area();
 
 
-// This is a kind of ojbect 
-// It just has some properties 
-// this is just a object and you can change some properties about it 
-// but you cannot make new object out of it 
+// This is a kind of ojbect
+// It just has some properties
+// this is just a object and you can change some properties about it
+// but you cannot make new object out of it
 var myCustomCar = {
     color: "red",
     wheels: true,
@@ -36,13 +36,13 @@ var myCustomCar = {
     tanker: true,
     tankCapacity: "4l",
     model:"2018 C class",
-    
+
 }
 
-// Higher Order Function 
-// In short higher order function is that function takes another function as a parameter and call another function 
-// like this function which is defined and declared below 
-// the function which is passed as a paramter is called CallBack Function 
+// Higher Order Function
+// In short higher order function is that function takes another function as a parameter and call another function
+// like this function which is defined and declared below
+// the function which is passed as a paramter is called CallBack Function
 
 
 function add(num1, num2) { return num1 + num2;}
@@ -55,3 +55,7 @@ function calculator(num1, num2, operator) {
 
 var addition = calculator(3, 3, add);
 console.log(addition);
+
+
+// another form of the CallBack function is this
+// without using the function keyword () => { define the function here }

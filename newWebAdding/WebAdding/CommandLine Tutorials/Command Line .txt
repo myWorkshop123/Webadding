@@ -1,0 +1,18 @@
+to create a secret file which is not visible 
+    mkdir .<name of the file>
+    by using a "." (dot) infront of the name of the directory will hide that folder inside the 
+    GUI 
+
+
+option key
+    to move the cursor to the specific position
+        press the option key 
+            and u will see a that the cursor will change and now put the cursor in any
+            position u want 
+
+
+Control + A 
+    to get the cursor to the begining 
+
+Control + E 
+    to get to the end of the command line 
