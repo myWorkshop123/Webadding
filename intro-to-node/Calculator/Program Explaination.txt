@@ -32,3 +32,16 @@ by using the body-parser module we first changed the encoding using the app.use(
 after changing the way in which the browser sends the data we will again use req.body method to get the values of the html elements
 
 now using the res.send method we will send the result as a response 
+
+
+there are only three function 
+
+app.listen() 
+    to setup the server 
+
+app.get()
+    to send the page on route 
+
+app.post()
+    to serve the request got from the server 
+
