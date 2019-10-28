@@ -1,0 +1,47 @@
+this is very important explaination 
+
+We loaded 2 modules => 1) Express  2)Body-parser 
+
+1) Express = this module is used to create server and send response to the browser request 
+
+2) Body-parser = this module is used to use the response which the browser sends to the server 
+                  in a very usefull way 
+
+
+app.use(bodyParser.urlencoded({ extended: true }));
+    this function is use to encode the form values 
+
+the functionality goes like this 
+
+we started the server using app.listen 
+
+we opened the browser and entered localhost:3000 
+
+the browser went to server and opened the root directory
+
+at the root directory we sent the index.html as a response to the browser request using the app.get() method 
+
+in the index.html we had a form in which the user entered the values and pressed the submit button 
+
+the browser sent the form values as a response to the server 
+
+at the server to get these form values we addedd the body-parser module 
+
+by using the body-parser module we first changed the encoding using the app.use(body-parser.urlencoded({ extented:true }))
+
+after changing the way in which the browser sends the data we will again use req.body method to get the values of the html elements
+
+now using the res.send method we will send the result as a response 
+
+
+there are only three function 
+
+app.listen() 
+    to setup the server 
+
+app.get()
+    to send the page on route 
+
+app.post()
+    to serve the request got from the server 
+

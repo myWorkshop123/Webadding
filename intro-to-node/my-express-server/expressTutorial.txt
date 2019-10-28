@@ -1,0 +1,44 @@
+express is used to additional functionality to the node js
+it is just a module which is used to make a local server
+
+to make a server
+    const express = require('express');
+    const app = express();
+    app.listen(3000 , function(){
+        console.log("the server has started");
+
+    })
+
+    explaination
+        in the first statement we inserted the express module using require statement
+        int the second statement, to make the work easy we use a const to put the value of function
+        express() , so the constant can be used to call other methods
+
+
+
+app.get() method
+  this method is used to send the response to the browser , who request the route
+  ("/") from the user
+  In the layman terms we can say that when we seted up our server and when we open
+  the browser and search for localhost:portNumber
+  the browser sends the request to the server about the page
+  now before the app.get() , the server was unable to respond to that request
+  but now the app.get() method allow us to respond to the server request
+	app.get(" directory " , callBack function(request , response) {
+		response.send("this is the home directory");
+		});
+
+
+__dirname keyword
+  this is used to get the location of the current file
+  because our website will not only be hosted from our own computer but also can be or will be hosted
+  from any other server or a cloud server for which we do not know the path of the file which we are
+  referring to so that's why we use the __dirname keyword to get the address/path of the current directory
+  and thus navigating through that path
+
+
+res.sendFile() method
+  this is used to send a file from the server in response to the browser request
+  earlier we used to send a single line of code or statement using the res.send() method
+  This method allows use to send a whole file
+  It takes the location/path of the file as a parameter which is done with the help of __dirname

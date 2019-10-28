@@ -1,0 +1,22 @@
+JSON is defined as Javascript Object Notation 
+    it is used by different servers to send data 
+    as the name suggest it is javascript 
+
+
+JSON.parse() method 
+
+    the data which the server send is in the string json form 
+    to convert that in the Object form json.parse is used
+
+JSON.stringify() method 
+
+    it is used to convert the object data into the string json form so
+    that it can be sent to the server 
+
+
+ res.write() method
+    
+    the res.send() method can only send one statement 
+    but the res.write() method allows us send multiple line by using res.write() multiple times 
+    and then after using res.write() the user has to again use 
+    res.send() method without the prameters to send everything to server 

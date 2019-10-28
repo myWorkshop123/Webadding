@@ -1,1 +1,8 @@
-$("h1").css("background-color","red");
+
+
+
+$("button").on("click", function () {
+    $("h1").slideToggle();
+
+})
+

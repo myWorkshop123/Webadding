@@ -54,6 +54,47 @@ removeClass() Method
     You can also use it to get the css class of the html element as we have did 
 
 
+ADDING EVENT LISTENERS
+
+$("h1").<name of the event>
+    to add a event listener
+
+ADDING HTML ELEMENTS
+
+there are 4 different position and 4 different keywords that can used to add html element on these positions 
+    
+    .before() Method 
+
+        < selected html element >.before( " html element u want to insert ")
+            it will insert the html element before the opening tag (<) of the selected html element 
+            
+    .after() Method 
+        it will place the html element after the closing tag (</h1>) of the selected html element
+
+    .prepent() Method 
+        it will add the html element just before the content of the html element
+
+    append() Method
+        it will add the html element just after the content of the html element
 
 
+ANIMATIONS WITH JQUERY 
+    .fadeIn()
+        to provide the fadeIn animation to an element
 
+    .fadeOut()
+        provides the fadeOut animation
+
+    .slideIn()
+        provide the slideIn animation
+    
+    .slideOut()
+        provide the slideOut animation
+    
+    .fadeToggle()
+        to toggle between fadeIn and fadeOut 
+
+    .slideToggle()
+        to toggle between slideIn() and slideOut 
+
+    
