@@ -1,6 +1,14 @@
 express is used to additional functionality to the node js
 it is just a module which is used to make a local server
 
+these are the various functions which are used to deploy the website through server
+
+
+app.listen()
+  this first initialise the server at a port which is specified as one parameter 
+  
+
+
 to make a server
     const express = require('express');
     const app = express();
@@ -42,3 +50,6 @@ res.sendFile() method
   earlier we used to send a single line of code or statement using the res.send() method
   This method allows use to send a whole file
   It takes the location/path of the file as a parameter which is done with the help of __dirname
+  
+
+
