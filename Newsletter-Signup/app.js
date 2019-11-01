@@ -11,7 +11,7 @@ app.use(express.static("public")); // this is will keep all the css and images a
 
 
 
-app.listen(3000, function () {
+app.listen(process.env.PORT || 3000, function () {
     console.log("the server has started at port 3000");
 
 
@@ -46,7 +46,7 @@ app.post("/", function (req, res) {
     var jsonData = JSON.stringify(data);
 
     var options = {
-        url: 'https://us20.api.mailchimp.com/3.0/lists/851dd7d53',
+        url: 'https://us20.api.mailchimp.com/3.0/lists/851dd7d530',
         method: "POST",
         headers: {
             "Authorization": "kartik1 98d202722ede4910b72d1d038c8dec92-us20"

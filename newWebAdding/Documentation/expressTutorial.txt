@@ -5,9 +5,22 @@ these are the various functions which are used to deploy the website through ser
 
 
 app.listen()
-  this first initialise the server at a port which is specified as one parameter 
-  
+  this first initialise the server at a port which is specified as one parameter
 
+
+
+process.env.PORT
+  this is an arguement which is passed inside the app.listen() method to allocate the port dynamically
+  to the when hosting it globally, Usually we give the port 3000 which is a localhost but when we host
+  the website globally the port 3000 does not works
+
+  NOTE = We should use it with ( || ) the OR symbol beside which we should give the port 3000 as this method
+  only works in the global hosting not in local hosting so when hosting the website locally
+  use this arguement with || OR statement
+
+
+
+=================================================================================================
 
 to make a server
     const express = require('express');
@@ -50,6 +63,3 @@ res.sendFile() method
   earlier we used to send a single line of code or statement using the res.send() method
   This method allows use to send a whole file
   It takes the location/path of the file as a parameter which is done with the help of __dirname
-  
-
-
