@@ -1,0 +1,69 @@
+[33mcommit 470f246979aa5f560a3dbbfecd5b783f4b32f6c7[m[33m ([m[1;36mHEAD -> [m[1;32mnewDevelop[m[33m, [m[1;31morigin/newDevelop[m[33m)[m
+Author: kartik <kartik@kartik.fritz.box>
+Date:   Fri Nov 1 15:34:51 2019 +0530
+
+    Newsletter project completed
+
+[33mcommit 00262c58deda7a349f3a02727b05b17150d6231b[m
+Merge: ffa97da 3f5a32d
+Author: kartik <kartik@kartik.fritz.box>
+Date:   Fri Nov 1 12:32:38 2019 +0530
+
+    Merge branch 'newDevelop' of https://github.com/myWorkshop123/Webadding into newDevelop
+
+[33mcommit 3f5a32dee0b8c8ab0c3374003182c39f0190c33f[m
+Author: myWorkshop123 <kartikkumar868@gmail.com>
+Date:   Fri Nov 1 10:51:46 2019 +0530
+
+    heroku setup done
+
+[33mcommit 5fb894815295181f0b0fe86613694aafa366c580[m
+Author: myWorkshop123 <kartikkumar868@gmail.com>
+Date:   Mon Oct 28 22:07:53 2019 +0530
+
+    Newsletter added
+
+[33mcommit ffa97dae165ed7d475950c8a678713b584616554[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmaster[m[33m)[m
+Merge: 9d56959 0403101
+Author: myWorkshop123 <54632194+myWorkshop123@users.noreply.github.com>
+Date:   Mon Oct 28 15:23:53 2019 +0530
+
+    Merge pull request #2 from myWorkshop123/newDevelop
+    
+    New develop merged with master
+
+[33mcommit 0403101b4d74ff97060726f1529deafaa3358b26[m
+Author: myWorkshop123 <kartikkumar868@gmail.com>
+Date:   Mon Oct 28 12:30:30 2019 +0530
+
+    Bitcoin ticker done
+
+[33mcommit 101b395b9cc9a927d68f83b0a3ee430b31ab3727[m
+Author: myWorkshop123 <kartikkumar868@gmail.com>
+Date:   Sun Oct 27 08:41:24 2019 +0530
+
+    testing for merging the newDevelop branch with Develop branch
+
+[33mcommit 62bbe4eb34aa00ba19533b5b27081e660867b831[m
+Author: myWorkshop123 <kartikkumar868@gmail.com>
+Date:   Sun Oct 27 08:31:02 2019 +0530
+
+    this is the commit where i have learnt all the github module
+
+[33mcommit 9d569591791fa27250e437efa08b7f60bc16ba4e[m
+Author: myWorkshop123 <kartikkumar868@gmail.com>
+Date:   Thu Oct 24 18:05:34 2019 +0530
+
+    this is the commit which contains the jquery file
+
+[33mcommit 6b937fd88e0f3e9d4512604719de1dc77ce042eb[m
+Author: myWorkshop123 <kartikkumar868@gmail.com>
+Date:   Thu Oct 24 11:09:44 2019 +0530
+
+    this is the another edit after the DRUM website completion
+
+[33mcommit 9d6f5b1250f68c1fb8640a221f9a55fbb1bcc3fa[m
+Author: myWorkshop123 <kartikkumar868@gmail.com>
+Date:   Thu Oct 24 10:39:44 2019 +0530
+
+    this is the commit in which i have the completed the DRUM website
