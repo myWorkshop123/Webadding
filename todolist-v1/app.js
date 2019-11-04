@@ -28,15 +28,9 @@ app.listen(3000, function () {
 
 app.get("/", function (req, res) {
 
-    var today = new Date();
-    var options = {
-        weekday: 'long',
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric'
-    };
-
-    var day = today.toLocaleDateString("en-US", options);
+    let date = require(__dirname + "/date.js");
+    
+    let day  = date.getDay();
 
     res.render("list", { kindOfDay: day, tempItem: items, btnrequest: postPage });
     
