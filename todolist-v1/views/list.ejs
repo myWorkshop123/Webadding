@@ -1,0 +1,28 @@
+<%- include('header')  -%>
+   
+        <h1><%= kindOfDay %></h1>
+
+    </div>
+    <div class="box">
+        <% for (var count = 0 ; count < tempItem.length ; count++ ) { %>
+        <div class="item">
+            <input type="checkbox">
+            <p><%= tempItem[count] %></p>
+        </div>
+        <% }  %>
+
+         <form class="item" action="/" method="post">
+             <input type="text" name="textItem" placeholder="New Item" autocomplete="off">
+             <br>
+             <button name="button" value=<%= btnrequest    %>    >+</button>
+
+
+
+         </form>
+
+    </div>
+
+<%- include('footer')  -%>
+
+
+

@@ -2,25 +2,77 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
+var nameOfDays = ['sunday', 'monday', 'tuesday', 'wednessday', 'thursday', 'friday', 'saturday'];
+var items = ["Buy Food",
+"Cook Food",
+    "Eat Food"];
+var workItems = [];
+var postPage = "";
 
-app.use(bodyParser.urlencoded({extended:true}));
-
-app.use('view engine' , 'ejs');
 
 
-app.listen(3000 , function() {
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static("public"));
+
+app.set('view engine', 'ejs');
+
+
+app.listen(3000, function () {
+
     console.log("the server has started");
 
 
 });
 
-app.get("/" , function(req,res) {
+
+
+app.get("/", function (req, res) {
+
     var today = new Date();
-    if (today.getDay() === 6 ) {
-        res.send("alert('it is a fucking Saturday');")
+    var options = {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+    };
 
-    }else {
-        res.send("alert('It is not Saturday You Fucking Piece of shit');")  
+    var day = today.toLocaleDateString("en-US", options);
 
+    res.render("list", { kindOfDay: day, tempItem: items, btnrequest: postPage });
+    
+});
+
+
+app.get("/work", function (req, res) {
+    postPage = "work";
+    res.render("list", { kindOfDay: "Work", tempItem: workItems,btnrequest:postPage });
+
+});
+
+app.get("/about", function (req, res) {
+    res.render("about");
+
+});
+
+
+
+
+app.post("/", function (req, res) {
+    if (req.body.button === 'work') {
+        var newItem = req.body.textItem;
+        workItems.push(newItem);
+        res.redirect("/work");
+
+    } else {
+        var item = req.body.textItem;
+
+        items.push(item);
+
+        res.redirect("/");
+
+        
     }
-})
+
+
+
+});

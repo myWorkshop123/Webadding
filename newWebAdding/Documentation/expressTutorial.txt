@@ -19,6 +19,25 @@ process.env.PORT
   use this arguement with || OR statement
 
 
+app.use(bodyParser.urlencoded({extended:true}));
+	this method is used to use body-parser module, it acts as a middleware which receives the data 
+  sent from the browser to the server 
+
+
+app.use(express.static("public"))
+  this method is used to add css/js file into the html file when u r hosting the file from the server
+  when u r hosting the website from the server it Usually neglects all the other local files in the directory
+  so to use those file like in static website we put everything into the public directory and
+  add this method 
+
+
+app.set('view engine' , 'ejs') 
+  this method is used to use the template file in website 
+
+
+
+
+
 
 =================================================================================================
 
