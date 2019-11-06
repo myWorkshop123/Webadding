@@ -1,4 +1,25 @@
 //jshint esversion:6
+const lodash = require('lodash');
+
+function checkPresence(value) {
+
+  console.log(posts);
+  for (var count = 0 ; count < posts.length ; count++)
+  {
+
+    var loopWord = lodash.lowerCase(posts[count].mainTitle);
+    var valueWord =  loadash.lowerCase(value)
+    if (loopWord == valueWord){
+      return true;
+
+    }
+    else {
+      return false;
+    }
+  }
+
+
+}
 
 const express = require("express");
 const bodyParser = require("body-parser");
@@ -59,6 +80,26 @@ app.post("/compose" , (req,res) => {
 
 
 
-})
+});
+
+
+app.get("/posts/:post" , function(req,res) {
+  console.log(req.params.post);
+  let 
+  
+  if (checkPresence(req.params.post)){
+    res.send("Match Found ");
+
+    console.log("match Found ");
+
+
+  }else {
+    console.log("match not found ");
+    
+  }
+
+  
+  
+});
 
 
