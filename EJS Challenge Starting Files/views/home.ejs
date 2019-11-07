@@ -2,17 +2,26 @@
 
 <h1>Home Screen</h1>
 <p> <%= insideContent %> </p>
+<% var convertedString = ''; %>
+<% function cutShort(value) {%>
+<%    for (var count = 0 ; count<100 ; count++) { %>
+<%        convertedString += value[count] %>      
+<%    } %>
+<%    return convertedString+'...'; %>
+    
+<% } %>
 
 
 <% submittedPosts.forEach(function(element) { %>
     <h1> <%= element.mainTitle %></h1>
-    <p> <%= element.mainBody %></p>
+    <p> <%= cutShort(element.mainBody)  %></p>
+    
+
 <% }); %>
 
 
 
 
-
-
+<script src="home.js"></script>
 
 <%- include('partials/footer') -%>

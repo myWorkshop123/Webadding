@@ -1,0 +1,7 @@
+verb + object + Programming language 
+this should be the format for searching for a problem on google 
+
+like in EJS we had problem of just showing 100 chars of the main body 
+so we will search on google like this 
+
+truncate string javascript 
