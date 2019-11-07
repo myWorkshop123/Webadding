@@ -1,25 +1,42 @@
 //jshint esversion:6
-const lodash = require('lodash');
+const ld = require('lodash');
 
 function checkPresence(value) {
+  
 
   console.log(posts);
   for (var count = 0 ; count < posts.length ; count++)
   {
+    var returnObject = {};
+    
 
-    var loopWord = lodash.lowerCase(posts[count].mainTitle);
-    var valueWord =  loadash.lowerCase(value)
+
+    var loopWord = ld.lowerCase(posts[count].mainTitle);
+    var valueWord = ld.lowerCase(value);
+    
     if (loopWord == valueWord){
-      return true;
+      returnObject = {
+        isFound: true,
+        Title: posts[count].mainTitle,
+        Content: posts[count].mainBody
+      };
+      return returnObject;
 
     }
     else {
-      return false;
+      returnObject = {
+        isFound: false,
+        Title: 'none',
+        Content: 'none'
+      };
+
+
     }
   }
 
 
 }
+
 
 const express = require("express");
 const bodyParser = require("body-parser");
@@ -55,20 +72,20 @@ app.get("/", function (req, res) {
 
 });
 
-app.get("/about" , (req,res) => {
-  res.render("about" , {insideContent:aboutContent});
+app.get("/about", (req, res) => {
+  res.render("about", { insideContent: aboutContent });
 
-})
+});
 
-app.get("/contact" , (req,res) => {
-  res.render("contact" , {insideContent:contactContent});
+app.get("/contact", (req, res) => {
+  res.render("contact", { insideContent: contactContent });
   
-})
+});
 
-app.get("/compose" , (req,res) => {
-  res.render("compose")
+app.get("/compose", (req, res) => {
+  res.render("compose");
 
-})
+});
 
 app.post("/compose" , (req,res) => {
   let post = {
@@ -76,25 +93,27 @@ app.post("/compose" , (req,res) => {
     mainBody:req.body.postTextbox
   };
   posts.push(post);
-  res.redirect("/")
+  res.redirect("/");
 
 
 
 });
 
 
-app.get("/posts/:post" , function(req,res) {
+app.get("/posts/:post", function (req, res) {
   console.log(req.params.post);
-  let 
   
-  if (checkPresence(req.params.post)){
-    res.send("Match Found ");
+  if (checkPresence(req.params.post).isFound === true) {
+    let postObject = checkPresence(req.params.post);
+    
+    res.render("post", { postHeading:postObject.Title , postContent:postObject.Content});
 
-    console.log("match Found ");
+    
 
 
-  }else {
-    console.log("match not found ");
+
+  } else {
+    console.log("Match not found ");
     
   }
 
