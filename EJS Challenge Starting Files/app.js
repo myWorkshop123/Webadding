@@ -2,18 +2,13 @@
 const ld = require('lodash');
 
 function checkPresence(value) {
-  
-
   console.log(posts);
   for (var count = 0 ; count < posts.length ; count++)
   {
     var returnObject = {};
-    
-
-
     var loopWord = ld.lowerCase(posts[count].mainTitle);
     var valueWord = ld.lowerCase(value);
-    
+
     if (loopWord == valueWord){
       returnObject = {
         isFound: true,
@@ -64,7 +59,7 @@ app.listen(3000, function() {
 app.get("/", function (req, res) {
   let postRecieved = posts;
 
- 
+
 
   res.render("home.ejs" , {insideContent:homeStartingContent , submittedPosts:postRecieved});
 
@@ -79,7 +74,7 @@ app.get("/about", (req, res) => {
 
 app.get("/contact", (req, res) => {
   res.render("contact", { insideContent: contactContent });
-  
+
 });
 
 app.get("/compose", (req, res) => {
@@ -101,24 +96,23 @@ app.post("/compose" , (req,res) => {
 
 
 app.get("/posts/:post", function (req, res) {
-  console.log(req.params.post);
-  
-  if (checkPresence(req.params.post).isFound === true) {
-    let postObject = checkPresence(req.params.post);
-    
+  var convertToSnake = ld.snakeCase(req.params.post);
+
+
+  if (checkPresence(convertToSnake).isFound === true) {
+    let postObject = checkPresence(convertToSnake);
+
     res.render("post", { postHeading:postObject.Title , postContent:postObject.Content});
 
-    
+
 
 
 
   } else {
     console.log("Match not found ");
-    
+
   }
 
-  
-  
+
+
 });
-
-

@@ -1,21 +1,17 @@
 <%- include('partials/header') -%>
 
+
 <h1>Home Screen</h1>
 <p> <%= insideContent %> </p>
-<% var convertedString = ''; %>
-<% function cutShort(value) {%>
-<%    for (var count = 0 ; count<100 ; count++) { %>
-<%        convertedString += value[count] %>      
-<%    } %>
-<%    return convertedString+'...'; %>
-    
-<% } %>
-
 
 <% submittedPosts.forEach(function(element) { %>
     <h1> <%= element.mainTitle %></h1>
-    <p> <%= cutShort(element.mainBody)  %></p>
-    
+    <p> <%= element.mainBody.substring(0,100)+'...'  %></p>
+    <% var linkTOPage = '/posts/' + element.mainTitle.replace(" ","-"); console.log(linkTOPage + ' link to page '); %>
+
+    <a href=<%=linkTOPage%>> Read More </a>
+
+
 
 <% }); %>
 
