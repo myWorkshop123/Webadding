@@ -1,0 +1,15 @@
+Docker 
+
+docker contianer start <container id>
+
+
+docker ps -a
+	to enlist the containers
+
+sudo docker exec -it sql1 "bash"
+
+
+/opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P "papaPAPA123"
+
+	to go inside the data base 
+
