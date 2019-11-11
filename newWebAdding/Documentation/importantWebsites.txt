@@ -36,7 +36,10 @@ coding - style = https://github.com/rwaldron/idiomatic.js/ = read the article fo
 neat code
 
 
-any api = https://any-api.com = Contains all the APIs which are available outthere 
+any api = https://any-api.com = Contains all the APIs which are available outthere
 
 
-heroku = https://www.heroku.com = for hosting the website free live 
+heroku = https://www.heroku.com = for hosting the website free live
+
+
+Devhint = https://devhints.io/emacs = Website for cheatsheets
