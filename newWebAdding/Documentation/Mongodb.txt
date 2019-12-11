@@ -1,0 +1,26 @@
+Initial Setup
+	go to the path where the database is stored and type
+
+	mongod --dbpath <the path>
+
+	in the other tab type
+
+	mongo
+
+
+
+show dbs
+     it is used to show all the database
+
+use db <name of the database>
+    it is used to change the database if the database is not present then it
+    will change the database
+
+db.collection.insertOne({})
+	it is used to create a table and add the values in the json format
+
+show collections
+     it is used to show the all the available tables
+
+
+		
