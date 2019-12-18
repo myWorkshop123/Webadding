@@ -1,67 +1,80 @@
 // jshint esversion:6
-
-const MongoClient = require('mongodb').MongoClient; // required Module 
-const assert = require('assert'); // I forgot what it used to do 
+const mongoose = require('mongoose');
 
 // connection url 
-const url = 'mongodb://localhost:27017';  // the server address where the mongodb will be running 
+var url = 'mongodb://localhost:27017';  // the server address where the mongodb will be running 
+
 
 
 // database name 
-const dbName = 'fruitsDB';
-
-// Create a new MongoClient 
-
-const client = new MongoClient(url , {useUnifiedTopology:true});  // client is used to connect to the server 
+const dbName = '/fruitsDB';
 
 
+url = url + dbName;
 
 
-// Used Connect method to connect to the server 
-client.connect(function(err) {
-    assert.equal(null,err);
-    console.log("Connected successfully to the server");
+mongoose.connect(url , {useUnifiedTopology:true , useNewUrlParser:true} );
 
-    const db = client.db(dbName);
+console.log("Sab changa c");
 
-   
-
-   insertDocument(db , function(){
-       findDocuments(db , function(){
-           client.close();
-
-       });
-       
-
-       
-   });
-
-
-
-
+// Mongodb schema like dbms
+const FruitSchema = new mongoose.Schema({
+    _id: Number,
+    name: String,
+    rating: Number,
+    review: String
 });
- const insertDocument = function(db , callback) {
-        // Get the documents collection
-        const collection = db.collection('FruitList');
-        collection.insertMany([
-            {_id:1 ,name:'Apple' ,  cost:100 , stock:32 } , 
-            {_id:2,name: 'Pineapple' , cost:150 , stock:44} , 
-            {_id:3 ,name:'Guava' , cost:50 , stock:50}
-        ] , function(err,result) {
-            assert.equal(err , null) ;
-            assert.equal(3 , result.result.n);
-            assert.equal(3,result.ops.length);
-            console.log("Inserted 3 documents into the collection");
-            callback(result);
-            
-            
-        
-        } 
-        
-        );
 
 
-    };
+
+const Fruit = mongoose.model("Fruit", FruitSchema); // Fruit is the name of the collection
+
+
+// insertion Operation 
+
+const fruit = new Fruit({
+    _id: 1,
+    name: "Apple",
+    rating: 7,
+    review: "Pretty solid fruit "
+});
+
+const personSchema = new mongoose.Schema({
+    _id: Number,
+    name: String,
+    age: Number
+});
+
+
+const person = new mongoose.model('person', personSchema);
+
+const john = new person({
+    _id: 1,
+    name: "John",
+    age: 67
+});
+
+
+const parav = new person({ _id: 2, name: "Parav", age: 19 });
+
+const aman = new person({ _id: 3, name: "Aman", age: 19 });
+
+const jatin = new person({ _id: 4, name: "Jatin Kapoor", age: 20 });
+
+// to insert multiple documents
+
+// person.insertMany([parav, aman, jatin], function (err) {
+//     if (err) {
+//         console.log(err);
+//     } else {
+//         console.log("Data inserted successfully ");
+//     }
+// });
+
+
+person.find({});
+
+
 
 
 const findDocuments = function(db , callback) {
