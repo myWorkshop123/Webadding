@@ -39,10 +39,37 @@ const fruit = new Fruit({
     review: "Pretty solid fruit "
 });
 
+
+const Orange = new Fruit({
+    _id: 2,
+    name: "Orange",
+    rating: 9,
+    review: "Easiest to eat "
+});
+Orange.save();
+
+
+const banana = new Fruit({
+    _id: 3,
+    name: "Banana",
+    rating: 6,
+    review: "Good for metabolism but too much sweet. "
+});
+banana.save();
+
+
 const personSchema = new mongoose.Schema({
     _id: Number,
-    name: String,
-    age: Number
+    name: {
+        type: String, 
+        required: [true , 'please enter the name of the person '] 
+    },
+    age: Number, 
+
+    // database embedding and relationships
+
+
+    favouriteFruit: FruitSchema
 });
 
 
@@ -71,27 +98,64 @@ const jatin = new person({ _id: 4, name: "Jatin Kapoor", age: 20 });
 //     }
 // });
 
-
-person.find({});
-
-
+const puneet = new person({ _id: 10, name:"Puneet" , age: 20 });
+// puneet.save();
 
 
-const findDocuments = function(db , callback) {
 
-    // Get the documents collection
-    const collection = db.collection('FruitList');
 
-    // Find some documents 
+const Amy = new person({ _id: 11, name: "Amy", age: 12, favouriteFruit: Orange });
+Amy.save();
 
-    collection.find({}).toArray(function(err , docs){
-      assert.equal(err , null);
-      console.log("Found the following documents");
-      console.log(docs);
-      callback(docs);
 
-      
+person.find(function (err, people) {
+    if (err) {console.log(err);
+    } else {
+        // console.log(people);
         
-    })
+        
+        people.forEach(function(element) {
+            console.log(element.name);
+                
+        });
+        mongoose.connection.close();
 
-}
+        
+    }
+});
+
+
+// Update Operation 
+
+// person.updateOne({ _id: 5 }, { name: "Puneet" }, (err) => {
+//     if (err) {console.log(err);
+//     } else {console.log("Updated Data Successfully");
+//     }
+// })
+
+person.updateOne({ name: "John" }, { favouriteFruit: banana }, (err) => {
+    console.log("Updated Successfully");
+});
+
+
+// Delete Operation 
+
+// person.deleteOne({ _id: 5 }, (err) => {
+//     if (err) {
+//         console.log(err);
+//     } else {
+//         console.log("Deleted the data successfully ");
+//     }
+// });
+
+
+// Delete Many operation 
+
+// person.deleteMany({ name: "Puneet" }, (err) => {
+//     if (err) {
+//         console.log(err);
+//     } else {
+//         console.log("Deleted all the records successfully");
+//     }
+// });
+
