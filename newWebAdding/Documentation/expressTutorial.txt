@@ -9,10 +9,10 @@ app.listen()
 
 
 
-process.env.PORT
+process.env.PORT( === IMPORTANT === )
   this is an arguement which is passed inside the app.listen() method to allocate the port dynamically
-  to the when hosting it globally, Usually we give the port 3000 which is a localhost but when we host
-  the website globally the port 3000 does not works
+  to the Website when hosting it globally, Usually we give the port 3000 which is a localhost but when we host
+  the website globally(On the Internet) the port 3000 does not works
 
   NOTE = We should use it with ( || ) the OR symbol beside which we should give the port 3000 as this method
   only works in the global hosting not in local hosting so when hosting the website locally
