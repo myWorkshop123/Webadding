@@ -1,0 +1,3 @@
+PUT http://localhost:3000/articles/kartik HTTP/1.1
+    title:'ramesh'
+    content:'kumar'

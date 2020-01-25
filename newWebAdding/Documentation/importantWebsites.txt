@@ -43,3 +43,7 @@ heroku = https://www.heroku.com = for hosting the website free live
 
 
 Devhint = https://devhints.io/emacs = Website for cheatsheets
+
+cryptii = cryptii.com = Website for encryption and decryption text
+
+haveibeenpawned = https://haveibeenpwned.com/ = Website for checking whether the email is safe or not

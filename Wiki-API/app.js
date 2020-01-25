@@ -89,16 +89,32 @@ app.route("/articles/:articleName")
     })
     .put(function (req, res) {
         const nameOfArticle = req.params.articleName;
-        article.replaceOne({ title: nameOfArticle },
+        
+        article.update({ title: nameOfArticle },
             { title: req.body.title, content: req.body.content },
+            { overwrite: true },
             function (err) {
                 if (!err) {
-                    const details = req.body.title + " " + req.body.content;
-                    
-                    res.send(details);
+                    res.send("Updated Successfully");
                 } else {
                     res.send(err);
                 }
             });
+           
+    })
+    .patch(function (req, res) {
+        article.update(
+            { title: req.params.articleName },
+            { $set: req.body },
+            function (err) {
+                if (!err) { res.send("database updated "); }
+                else { res.send(err); }
+            }
+        );
+    })
+    .delete(function (req, res) {
+        article.deleteOne({ title: req.params.articleName }, function (err) {
+            if (!err) { res.send("Article deleted "); }
+            else { res.send(err); }
+        });
     });
-    
