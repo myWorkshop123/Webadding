@@ -7,7 +7,8 @@ const ejs = require('ejs');
 const bodyParser = require('body-parser');
 const app = express();
 const mongoose = require('mongoose');
-const md5 = require('md5');
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
 
 
 app.use(express.static('public'));
@@ -64,40 +65,53 @@ app.post("/register", function (req, res) {
 
     
     const userName = req.body.username;
-    const passWord = md5(req.body.password);
+    const passWord = req.body.password;
 
+    bcrypt.hash(passWord, saltRounds, function (err, hash) {
+        if (!err) {
+            const new_user = new User({
+                username: userName,
+                password: hash
+            });
+            new_user.save(
+                function (err) {
+                    if (!err) {
+                        res.render('secrets');
 
-    const new_user = new User({
-        username: userName,
-        password: passWord
-    });
-    new_user.save(
-        function (err) {
-            if (!err) {
-                res.render('secrets');
+                    } else { console.log(err); }
+                }
+            );
 
-            } else { console.log(err); }
         }
-    );
-    
-    
+        else {
+            console.log(err);
+        }
+    });    
 });
 
 // for Authentication the user 
 
 app.post("/login", function (req, res) {
     const testUser = req.body.username;
-    const testPass = md5(req.body.password);
+    const testPass = req.body.password;
     User.findOne({ username: testUser }, function (err, foundUser) {
         if (err) {
             console.log('this is the error ',err);
         } else {
             if (foundUser) { // If found the user 
-                if (foundUser.password === testPass) {
-                    res.render('secrets');
-                } else {
-                    res.send('Wrong password ');
-                }
+                bcrypt.compare(testPass, foundUser.password, function (err, result) {
+                    if (err) {
+                        console.log(err);
+                        
+                    } else {
+                        if (result === true) {
+                            res.render('secrets');
+                        } else {
+                            res.send('password not matched ');
+                        }
+                    }
+                });
+
             } else { // It did not found the user 
                 res.send('User not found');
             }
