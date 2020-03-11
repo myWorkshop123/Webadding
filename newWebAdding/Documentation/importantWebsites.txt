@@ -1,5 +1,8 @@
 colorhunt  = select colors
 
+flatuicolors = https://flatuicolors.com/palette/nl = also for selecting colors
+
+
 fonts.google.com   = select font
 
 seanhalpin.io  =   guruji ki website
@@ -47,3 +50,7 @@ Devhint = https://devhints.io/emacs = Website for cheatsheets
 cryptii = cryptii.com = Website for encryption and decryption text
 
 haveibeenpawned = https://haveibeenpwned.com/ = Website for checking whether the email is safe or not
+
+transparentTextures = https://www.transparenttextures.com/ = Website for getting tansparent textures for background
+
+CodeSandbox = codesandbox.io = For Creating Node projects in the browser in the cloud 
