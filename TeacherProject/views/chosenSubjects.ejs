@@ -1,0 +1,16 @@
+<%- include('partials/header') %>
+
+<form action="/logout" method="GET">
+    <h1> <%= teacherName %>  </h1>
+    <ul>
+        <% visibleSubjects.forEach(subject => { %>
+        <li>
+            <label> <%= subject %> </label>
+        </li>
+        <% }) %>
+    </ul>
+    <button>Confirm</button>
+</form>
+
+
+<%- include('partials/footer') %>

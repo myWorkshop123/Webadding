@@ -1,0 +1,33 @@
+<%- include('partials/header') %>
+
+<form action="/selectedSubject" method="post">
+<ul>
+    
+          <% visibleSubjects.forEach(subject => { %>    
+                <li>
+               <label > <%= subject.name %>  </label>
+               <input type="checkbox" name="<%=subject.name%>">
+                </li>
+
+    
+          <% }) %>
+</ul>
+            <button>Select</button>
+
+    <a class="btn btn-light btn-lg" href="/chosenSubjects" role="button">Show Subjects</a>
+
+
+
+
+</form>
+<!-- 
+
+<form action="/chosenSubjects" method="GET">
+      <button>ShowSubjects</button>
+
+
+</form> -->
+
+
+
+<%- include('partials/footer') %>
