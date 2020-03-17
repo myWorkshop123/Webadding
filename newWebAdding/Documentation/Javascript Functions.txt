@@ -1,3 +1,0 @@
-there are many advanced function in javascript 
-this is just a reference function help file although i have also created 
-another files in the DOM naming the advance javascript
