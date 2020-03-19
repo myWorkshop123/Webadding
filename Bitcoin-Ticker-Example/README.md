@@ -1,5 +1,5 @@
 # Bitcoin Ticker 
-## It tell the current price of the bitcoin using [Bitcoin Average](https://bitcoinaverage.com/) api
+## It tell the current price of  bitcoin using [Bitcoin Average](https://bitcoinaverage.com/) api
 
 
 ## Installation 
