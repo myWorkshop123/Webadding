@@ -1,66 +1,44 @@
 //jshint esversion:6
+require('dotenv').config();
 
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 const request = require("request");
+const ba = require('bitcoinaverage');
+
+var publicKey = process.env.USER_PUBLIC_KEY;
+var secretKey = process.env.USER_PRIVATE_KEY;
+
+var restClient = ba.restfulClient(publicKey, secretKey);
+var wsClient = ba.websocketClient(publicKey, secretKey);
+var symbol_set = 'global';
+
+app.use(express.static("public"))
+
 
 app.use(bodyParser.urlencoded({ extended: true }));
+
+
 
 app.get("/", function (req, res) {
   res.sendFile(__dirname + "/index.html");
 });
 
 app.listen(3000, function () {
-  console.log("the server has started");
+  console.log("the server has started at port 3000");
 });
+
 
 app.post("/", function (req, res) {
-  var myUrl =
-    "https://apiv2.bitcoinaverage.com/indices/global/ticker/" +
-    req.body.crypto +
-    req.body.fiat;
-  var anotherUrl =
-    "https://apiv2.bitcoinaverage.com/convert/global?from=BTC&to=USD&amount=2";
-
-  request(myUrl, function (error, response, body) {
-    var answer = JSON.parse(body);
-    console.log(answer.ask);
-
-    res.send("<h1>the price is " + answer.ask + "</h1>");
+  var symbol = req.body.crypto + req.body.fiat;
+  restClient.getTickerDataPerSymbol('global', symbol, function (response) {
+    const price = JSON.parse(response);
+    res.send("<h1>The price is " + price.ask + "</h1>")
+  }, function (error) {
+    console.log(error);
   });
+
+
 });
 
-// The conversion page
-
-app.get("/cc", function (req, res) {
-  res.sendFile(__dirname + "/convert.html");
-});
-
-
-
-app.post("/cc", function (req, res) {
-  var crypto = req.body.crypto;
-  var fiat = req.body.fiat;
-  var amount = req.body.amount;
-  var conversionUrl =
-    "https://apiv2.bitcoinaverage.com/convert/global?from=" + crypto + "&to=" + fiat + "&amount=" + amount;
-
-
-
-  request(conversionUrl, function (error, response, body) {
-    
-    var convertedValue = JSON.parse(body);
-
-    console.log(convertedValue.price);
-
-    var price = convertedValue.price;
-
-    res.write("the converted values is " + price);
-    res.send();
-    
-
-
-
-  })
-});
