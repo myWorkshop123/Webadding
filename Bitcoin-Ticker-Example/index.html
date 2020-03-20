@@ -11,17 +11,17 @@
     <link rel="stylesheet" href="styles.css">
 
   </head>
-  <body>
-      <h1>Bitcoin Ticker</h1>
+  <body style="background-color: #67e6dc;">
+      <h1 class="display-1">Bitcoin Ticker</h1>
 
     <div class="container-fluid">
       <form action="/"  method="post">
-        <select name="crypto" class="btn btn-secondary btn-group-toggle">
+        <select name="crypto" class="customDiv btn btn-secondary btn-group-toggle">
           <option value="BTC">Bitcoin</option>
           <option value="ETH">Etherium</option>
           <option value="LTC">Litecoin</option>
         </select>
-        <select name="fiat" class="btn btn-secondary btn-group-toggle">
+        <select name="fiat" class="customDiv btn btn-secondary btn-group-toggle">
           <option value="USD">US Dollars</option>
           <option value="GBP">GB Pounds</option>
           <option value="EU">EU Euros</option>
@@ -29,6 +29,8 @@
         <Button class="btn btn-primary">Submit</Button>
       </form>
     </div>
+
+   
     <!-- Jquery -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
       integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">

@@ -13,3 +13,8 @@ npm start
 ```
 ---
 ### go to http://localhost:3000/ on your browser 
+---
+## Screenshots
+![FirstScreenshot](screenshots/Screenshot1.png)
+
+![Second](screenshots/Screenshot2.png)
