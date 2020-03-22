@@ -1,18 +1,19 @@
 //jshint esversion:6
 
+
 const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const _ = require("lodash");
 const mongoose = require('mongoose');
+const colors = require('colors');
+
 
 const homeStartingContent = "Lacus vel facilisis volutpat est velit egestas dui id ornare. Semper auctor neque vitae tempus quam. Sit amet cursus sit amet dictum sit amet justo. Viverra tellus in hac habitasse. Imperdiet proin fermentum leo vel orci porta. Donec ultrices tincidunt arcu non sodales neque sodales ut. Mattis molestie a iaculis at erat pellentesque adipiscing. Magnis dis parturient montes nascetur ridiculus mus mauris vitae ultricies. Adipiscing elit ut aliquam purus sit amet luctus venenatis lectus. Ultrices vitae auctor eu augue ut lectus arcu bibendum at. Odio euismod lacinia at quis risus sed vulputate odio ut. Cursus mattis molestie a iaculis at erat pellentesque adipiscing.";
 const aboutContent = "Hac habitasse platea dictumst vestibulum rhoncus est pellentesque. Dictumst vestibulum rhoncus est pellentesque elit ullamcorper. Non diam phasellus vestibulum lorem sed. Platea dictumst quisque sagittis purus sit. Egestas sed sed risus pretium quam vulputate dignissim suspendisse. Mauris in aliquam sem fringilla. Semper risus in hendrerit gravida rutrum quisque non tellus orci. Amet massa vitae tortor condimentum lacinia quis vel eros. Enim ut tellus elementum sagittis vitae. Mauris ultrices eros in cursus turpis massa tincidunt dui.";
 const contactContent = "Scelerisque eleifend donec pretium vulputate sapien. Rhoncus urna neque viverra justo nec ultrices. Arcu dui vivamus arcu felis bibendum. Consectetur adipiscing elit duis tristique. Risus viverra adipiscing at in tellus integer feugiat. Sapien nec sagittis aliquam malesuada bibendum arcu vitae. Consequat interdum varius sit amet mattis. Iaculis nunc sed augue lacus. Interdum posuere lorem ipsum dolor sit amet consectetur adipiscing elit. Pulvinar elementum integer enim neque. Ultrices gravida dictum fusce ut placerat orci nulla. Mauris in aliquam sem fringilla ut morbi tincidunt. Tortor posuere ac ut consequat semper viverra nam libero.";
 
 const app = express();
-
-
 
 app.set('view engine', 'ejs');
 
@@ -29,19 +30,13 @@ const blogSchema = mongoose.Schema({
 
 //Collection Model 
 const blogs = new mongoose.model('Blog', blogSchema);
-
-
-
-
-
 let posts = [];
 
+// Show all the blogs
 app.get("/", function (req, res) {
 
   blogs.find({}, function (err, result) {
     if (!err) {
-      console.log(typeof(result.content));
-      
       res.render("home", {
         startingContent: homeStartingContent,
         posts: result
@@ -62,6 +57,79 @@ app.get("/compose", function(req, res){
   res.render("compose");
 });
 
+// Delete posts
+app.get('/delete/posts/:postId', function (req, res) {
+  // Get the id
+  const requestedPostId = req.params.postId;
+
+  blogs.deleteOne({ _id: requestedPostId }, function (err) {
+    if (err) { console.log(err); }
+    else {
+      res.redirect('/')
+
+    }
+  })  
+  
+  
+})
+
+
+// Edit post 
+app.get('/edit/posts/:postId', function (req, res) {
+  // Get the id
+  const requestedPostId = req.params.postId;
+  blogs.findById(requestedPostId, function (err, docs) {
+    if (err) { console.log(err); }
+    else {
+      const title = docs.title;
+      const content = docs.content;
+
+      res.render('edit', {
+        postId:requestedPostId,
+        oldTitle: title, 
+        oldContent:content
+      })
+    }
+  })  
+  
+  
+})
+
+// Show specific post 
+app.get("/posts/:postId", function (req, res) {
+  const requestedPostId = req.params.postId;
+  blogs.findOne({ _id: requestedPostId }, function (err, result) {
+
+    res.render("post", {
+      title: result.title,
+      content: result.content,
+      postId: requestedPostId
+    });
+
+  });
+
+});
+
+// Update the post in the database 
+app.post('/edit/posts/:postId', function (req, res) {
+  const requestedPostId = req.params.postId;
+  const updatedTitle = req.body.postTitle;
+  const updateContent = req.body.postBody;
+
+  blogs.findOneAndUpdate({ _id: requestedPostId }, {
+    $set: {
+      title: updatedTitle,
+      content: updateContent
+    }},function (err, result) {
+      if (err) { console.log(err); }
+      else {
+        res.redirect('/');
+      }
+  }
+  )
+})
+
+// Add a new note 
 app.post("/compose", function(req, res){
   // Insertion of the document in the database 
   const post = new blogs({
@@ -69,29 +137,13 @@ app.post("/compose", function(req, res){
     content: req.body.postBody
   });
   post.save(function (err) {
-    if (!err) { res.redirect("/");}
+    if (!err) { res.redirect("/"); }
   });
 
 
 });
 
-app.get("/posts/:postId", function (req, res) {
-  const requestedPostId = req.params.postId;
 
-
-  blogs.findOne({ _id: requestedPostId }, function (err, result) {
-  
-    res.render("post", {
-      title: result.title,
-      content: result.content
-    });
-
-
-  });
-  
-  
-
-});
 
 app.listen(3000, function() {
   console.log("Server started on port 3000");
