@@ -3,7 +3,7 @@
 *node_modules
 
 **/.env
-Newsletter-Example/.env
+/Newsletter-Example/.env
 
 # Logs
 logs

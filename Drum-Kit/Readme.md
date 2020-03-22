@@ -11,4 +11,4 @@ Git clone the project or download zip file and open index.html
 
 ### Screenshot
 
-![Screenshot](Drumkit.jpeg)
+![Screenshot](DrumKit.png)
