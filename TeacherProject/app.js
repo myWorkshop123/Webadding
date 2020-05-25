@@ -105,7 +105,7 @@ app.get("/secrets", function (req, res) {
 });
 
 app.get('/chosenSubjects', function (req, res) {
-  User.find({ username: currentUser[0] }, function (err, foundUser) {
+  User.find({ username: req.user.username }, function (err, foundUser) {
     if (err) { console.log(err); }
     else {
       if (foundUser) {
@@ -123,12 +123,18 @@ app.get('/chosenSubjects', function (req, res) {
 
 
 app.get('/subjects', function (req, res) {
-
-  Subject.find({isSelected:0}, function (err, docs) {
-    res.render('subject', {
-      visibleSubjects:docs
+  if (req.isAuthenticated()) {
+    Subject.find({ isSelected: 0 }, function (err, docs) {
+      res.render('subject', {
+        visibleSubjects: docs
+      })
     })
-  })
+    
+  } else {
+    res.redirect('/login');
+  }
+
+
 
 })
 
@@ -159,7 +165,6 @@ app.post('/updateRank', function (req, res) {
   const rank = req.body.rank;
   console.log('rank', rank);
 
-  console.log('Currrent User', currentUser);
 
 
   const Username = currentUser.pop();
@@ -196,6 +201,7 @@ app.post('/updateRank', function (req, res) {
 })
 app.post('/selectedSubject', function (req, res) {
   const newObj = req.body;
+  console.log('this is the user ',req.user);
 
   // For getting the keys
   for (let value of Object.keys(newObj)) {
@@ -214,12 +220,17 @@ app.post('/selectedSubject', function (req, res) {
           newSub.isSelected = 1;
 
           // making changes in the user's database
-          User.find({ username: currentUser[0] }, function (err, foundUser) {
+          User.find({ username:req.user.username }, function (err, foundUser) {
             if (err) { console.log(err); }
             else {
               if (foundUser) {
                 // Add the sub selected to the database 
-                foundUser[0].subSelected.push(newSub.name);
+                // But Before that we will check if it is already present in db 
+
+                if ((foundUser[0].subSelected).includes(newSub.name) === false) {
+                  foundUser[0].subSelected.push(newSub.name);
+                }
+
                 foundUser[0].save();
               }
             }
@@ -238,7 +249,7 @@ app.post('/selectedSubject', function (req, res) {
     // ForEach loop ends here
   })
 
-  res.redirect('/subjects');
+  res.redirect('/chosenSubjects');
 
 })
 
@@ -278,7 +289,6 @@ app.post("/login", function (req, res) {
         
         res.redirect('/checkRank');
       
-        // res.redirect("/secrets"); //TODO Uncomment this
 
 
       });
@@ -292,49 +302,38 @@ app.get('/checkRank', function (req, res) {
   const currentUserRank = req.user.rank;
   var answer = 1;
 
-  const lowerRankUsers = []
+  const lowerRankUsers = [] // This will contain all those users with high rank and who haven't registered
   User.find({ rank: { $lt: currentUserRank } }, function (err, foundUser) {
     if (err) { console.log(err); }
     else {
       if (foundUser) {
-        const lessRankUsers = foundUser;
-        console.log('lessRankUser' , lessRankUsers);
-        
-        lessRankUsers.forEach(function (user) {
+        // This will return an array of all the foundUsers
+        foundUser.forEach(function (user) {
           if (user.subSelected.length === 0) {
-            
-            answer = 0;
             lowerRankUsers.push(user.username);
-
           }
         })
-        if (answer === 0) {
-          const belowUser = lowerRankUsers;
-          res.write(belowUser+' has yet to pick subject so kindly fuck off');
-          res.send();
 
-          // res.redirect('/notAllowed');
+        if (lowerRankUsers.length != 0) {
+          res.render('usersRemaining', {
+            remainingTeachers: lowerRankUsers
+          });
+
+        } else {
+          res.redirect('/subjects');
+
         }
-        console.log(answer);
-        
+
       }
     }
   })
 
-  console.log('I came outside ');
-  
-  
-
 })
 
-app.get('/notAllowed', (req, res)=> {
-  res.write('User not allowed');
-  res.send();
-
-})
 
 
 app.post('/submit', function (req, res) {
+  // Check whether the user is still authenticated 
   if (req.isAuthenticated()) {
     const submittedSecret = req.body.secret;
     const userId = req.user._id;
@@ -348,28 +347,14 @@ app.post('/submit', function (req, res) {
             res.redirect('/secrets');
 
           });
-
-
         }
       }
-
     });
-
-
   }
   else {
     res.redirect('/login');
   }
 });
-
-
-
-
-
-
-
-
-
 
 app.listen(3000, function () {
   console.log("Server started on port 3000.");

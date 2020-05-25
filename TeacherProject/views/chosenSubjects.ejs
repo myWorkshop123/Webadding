@@ -1,7 +1,9 @@
 <%- include('partials/header') %>
 
 <form action="/logout" method="GET">
+
     <h1> <%= teacherName %>  </h1>
+    <h2>You have chosen the following subjects</h2>
     <ul>
         <% visibleSubjects.forEach(subject => { %>
         <li>
@@ -11,6 +13,11 @@
     </ul>
     <button>Confirm</button>
 </form>
+<button>
+    <a href="/subjects"> Go Back</a>
+
+</button>
+
 
 
 <%- include('partials/footer') %>

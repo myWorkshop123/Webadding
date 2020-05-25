@@ -16,3 +16,19 @@ body {
   color: #fff;
   background-color: #000;
 }
+
+.positionLTP{
+  margin-left: 10%;
+}
+
+table,
+td {
+  border: 1px solid #333;
+}
+
+thead,
+tfoot {
+  background-color: #333;
+  color: #fff;
+}
+
